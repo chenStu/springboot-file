@@ -1,0 +1,28 @@
+server:
+  port: 8081
+  address: 192.168.0.131
+
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?serverTimezone=Asia/Shanghai
+      username: root
+      password: 123456
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: com.example.file.entity
+  mapper-locations: classpath:com/example/file/mapper/*.xml
+
+
+logging:
+  level:
+    com.example.file.mapper: debug

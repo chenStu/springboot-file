@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.file.mapper.ChunkMapper">
+
+    <insert id="saveChunk" parameterType="Chunk">
+        insert into chunk(chunkNumber,chunkSize,currentChunkSize,totalSize,identifier,filename,relativePath,totalChunks,fileType)
+        values
+        (#{chunkNumber},#{chunkSize},#{currentChunkSize},#{totalSize},#{identifier},#{filename},#{relativePath},#{totalChunks},#{fileType})
+    </insert>
+
+    <select id="checkChunk" parameterType="string" resultType="integer">
+        select chunkNumber from chunk
+        where identifier  =#{identifier}
+    </select>
+
+</mapper>
